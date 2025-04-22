@@ -24,4 +24,6 @@ class HomeScreenProvider extends ChangeNotifier {
     'assets/loop2.png',
     'assets/ra1.png',
   ];
+
+  List slider = ['assets/all.png', 'assets/dog.png', 'assets/cat.png'];
 }
