@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:petapp/View/Home/home_screen_provider.dart';
+import 'package:petapp/View/Utils/CustomContainerClipper.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,8 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(25.r),
                                 borderSide: BorderSide(
-                                  color: Color(
-                                    0xFFF3C266,
+                                  color: Color.fromARGB(
+                                    255,
+                                    221,
+                                    209,
+                                    187,
                                   ), // custom border color
                                   width: 1.w,
                                 ),
@@ -63,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: 30,
-                            vertical: 20,
+                            vertical: 10,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -91,18 +95,230 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Container(
                           height: 200,
-                          child: PageView.builder(
-                            itemCount: model.slider.length,
-                            controller: PageController(viewportFraction: 0.5),
-                            itemBuilder: (context, index) {
+                          padding: EdgeInsets.all(2.w),
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (_, index) {
                               return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Image.asset(
-                                  model.slider[index],
-                                  height: 100.h,
-                                  width: 50.w,
+                                padding: EdgeInsets.all(8.0),
+                                child: Container(
+                                  height: 150.h,
+                                  width: 150.w,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(model.slider[index]),
+                                    ),
+                                  ),
                                 ),
                               );
+                            },
+                            itemCount: model.slider.length,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 30,
+                            vertical: 10,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'The Best Price',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'SeeAll',
+                                style: TextStyle(
+                                  color: Color(0xFFF3C266),
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Color(0xFFF3C266),
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: model.animal.length,
+                            itemBuilder: (context, index) {
+                              return index.isEven
+                                  ? Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Stack(
+                                      children: [
+                                        ClipPath(
+                                          clipper: SpeechBubbleClipper(),
+                                          child: Container(
+                                            height: 200.h,
+                                            width: double.infinity.w,
+                                            decoration: BoxDecoration(
+                                              color: Colors.brown,
+                                            ),
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsets.symmetric(
+                                                                    horizontal:
+                                                                        20,
+                                                                    vertical:
+                                                                        10,
+                                                                  ),
+                                                              child: Text(
+                                                                'Cat',
+                                                                style: TextStyle(
+                                                                  color:
+                                                                      Colors
+                                                                          .white,
+                                                                  fontSize:
+                                                                      30.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets.symmetric(
+                                                                    horizontal:
+                                                                        20.w,
+                                                                  ),
+                                                              child: Text(
+                                                                'Pain itself,\nlet it be loved,\nis amet,consectetur',
+                                                                style: TextStyle(
+                                                                  color:
+                                                                      Colors
+                                                                          .white,
+                                                                  fontSize:
+                                                                      18.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets.symmetric(
+                                                                    horizontal:
+                                                                        20.w,
+                                                                  ),
+                                                              child: Text(
+                                                                'Price: \$ 20',
+                                                                style: TextStyle(
+                                                                  color:
+                                                                      Colors
+                                                                          .white,
+                                                                  fontSize:
+                                                                      30.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                Image.asset(
+                                                  model.animal[index],
+                                                  height: 150.h,
+                                                  width: 150.w,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+
+                                        // Positioned(
+                                        //   top: 20,
+                                        //   left: 20,
+                                        //   child: Container(
+                                        //     height: 30.h,
+                                        //     width: 30.w,
+                                        //     decoration: BoxDecoration(
+                                        //       color: Colors.white,
+                                        //       borderRadius:
+                                        //           BorderRadius.circular(25.r),
+                                        //     ),
+                                        //     child: Icon(
+                                        //       Icons.favorite,
+                                        //       color: Colors.red,
+                                        //       size: 18.sp,
+                                        //     ),
+                                        //   ),
+                                        // ),
+                                      ],
+                                    ),
+                                  )
+                                  : Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Stack(
+                                      children: [
+                                        ClipPath(
+                                          clipper: SpeechBubbleClipper(),
+                                          child: Container(
+                                            height: 200.h,
+                                            width: double.infinity.w,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFF3C266),
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                Image.asset(
+                                                  model.animal[index],
+                                                ),
+                                                Image.asset(
+                                                  model.animal[index],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+
+                                        // Positioned(
+                                        //   top: 20,
+                                        //   left: 20,
+                                        //   child: Container(
+                                        //     height: 30.h,
+                                        //     width: 30.w,
+                                        //     decoration: BoxDecoration(
+                                        //       color: Colors.white,
+                                        //       borderRadius:
+                                        //           BorderRadius.circular(25.r),
+                                        //     ),
+                                        //     child: Icon(
+                                        //       Icons.favorite,
+                                        //       color: Colors.red,
+                                        //       size: 18.sp,
+                                        //     ),
+                                        //   ),
+                                        // ),
+                                      ],
+                                    ),
+                                  );
                             },
                           ),
                         ),
@@ -116,54 +332,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              // body: Column(
-              //   children: [
-              //     Expanded(
-              //       child: ListView.builder(
-              //         itemCount: model.bac.length,
-              //         itemBuilder: (context, index) {
-              //           return Padding(
-              //             padding: const EdgeInsets.all(8.0),
-              //             child: Stack(
-              //               children: [
-              //                 Image.asset('assets/ra1.png'),
-              //                 Positioned(
-              //                   top: -5,
-              //                   left: 240,
-              //                   child: Image.asset(
-              //                     model.animal[index],
-              //                     height: 150.h,
-              //                     width: 150.w,
-              //                   ),
-              //                 ),
-              //                 Positioned(
-              //                   top: 20,
-              //                   left: 20,
-              //                   child: Container(
-              //                     height: 40.h,
-              //                     width: 40.w,
-              //                     decoration: BoxDecoration(
-              //                       color: Colors.white,
-              //                       borderRadius: BorderRadius.circular(25.r),
-              //                     ),
-              //                     child: IconButton(
-              //                       icon: Icon(
-              //                         Icons.favorite,
-              //                         color: Colors.red,
-              //                         size: 18.sp,
-              //                       ),
-              //                       onPressed: () {},
-              //                     ),
-              //                   ),
-              //                 ),
-              //               ],
-              //             ),
-              //           );
-              //         },
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ),
       ),
     );
