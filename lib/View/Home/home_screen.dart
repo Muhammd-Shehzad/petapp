@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
+import 'package:petapp/View/AllAnimals/all_animal.dart';
 import 'package:petapp/View/Home/home_screen_provider.dart';
 import 'package:petapp/View/Utils/CustomContainerClipper.dart';
 import 'package:provider/provider.dart';
@@ -99,12 +101,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             itemBuilder: (_, index) {
                               return Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Container(
-                                  height: 150.h,
-                                  width: 150.w,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(model.slider[index]),
+                                child: InkWell(
+                                  onTap: () => model.OnTapScreen(index),
+                                  child: Container(
+                                    height: 150.h,
+                                    width: 150.w,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(model.slider[index]),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -261,7 +266,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                                 Image.asset(
                                                   model.animal[index],
-                                                  height: 180.h,
+                                                  height: 150.h,
+                                                  width: 75.w,
                                                 ),
                                               ],
                                             ),
@@ -403,7 +409,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                                 Image.asset(
                                                   model.animal[index],
-                                                  height: 180.h,
+                                                  height: 150.h,
+                                                  width: 75.w,
                                                 ),
                                               ],
                                             ),
