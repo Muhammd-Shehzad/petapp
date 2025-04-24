@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomeScreenProvider extends ChangeNotifier {
-  List animal = ['assets/cat.png', 'assets/dog.png', 'assets/loop.png'];
+  List animal = ['assets/dog.png', 'assets/cat2.png', 'assets/loop.png'];
+  List name = ['Dog', 'Cat', 'Rabbit'];
+  List price = ['\$20', '\$30', '\$40'];
 
   List<Color> color = [Color(0xFFF3C266), Colors.brown];
 
