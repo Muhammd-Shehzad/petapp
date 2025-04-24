@@ -1,7 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:petapp/View/Home/home_screen_provider.dart';
 import 'package:petapp/View/Utils/CustomContainerClipper.dart';
 import 'package:provider/provider.dart';
@@ -244,8 +242,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                                 Image.asset(
                                                   model.animal[index],
-                                                  height: 150.h,
-                                                  width: 150.w,
+                                                  height: 100.h,
+                                                  width: 100.w,
                                                 ),
                                               ],
                                             ),
