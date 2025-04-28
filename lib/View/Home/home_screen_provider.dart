@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/instance_manager.dart';
-import 'package:petapp/Utils/Roures/routes.dart';
 import 'package:petapp/Utils/Roures/routes_name.dart';
-import 'package:petapp/View/AllAnimals/all_animal.dart';
-import 'package:petapp/View/AnimalScreen/Dog/dog_screen.dart';
 
 class HomeScreenProvider extends ChangeNotifier {
-  List animal = ['assets/dog.png', 'assets/cat2.png', 'assets/loop.png'];
+  List animal = [
+    'assets/german_shepherd.png',
+    'assets/cat2.png',
+    'assets/loop.png',
+  ];
   List name = ['Dog', 'Cat', 'Rabbit'];
   List price = ['\$20', '\$30', '\$40'];
 
