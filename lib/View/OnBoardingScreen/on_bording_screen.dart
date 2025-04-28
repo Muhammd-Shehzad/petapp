@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:petapp/Utils/Roures/routes_name.dart';
 import 'package:petapp/View/Home/home_screen.dart';
 import 'package:petapp/View/OnBoardingScreen/on_bording_screen_provider.dart';
 import 'package:provider/provider.dart';
@@ -69,7 +70,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                     radius: 30.r,
                     child: IconButton(
                       onPressed: () {
-                        Get.to(HomeScreen());
+                        Get.toNamed(RoutesName.OnBoarding);
                       },
                       icon: const Icon(
                         Icons.arrow_forward_ios,

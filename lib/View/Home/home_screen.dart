@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
-import 'package:petapp/View/AllAnimals/all_animal.dart';
+import 'package:petapp/Utils/Roures/routes.dart';
+import 'package:petapp/Utils/Roures/routes_name.dart';
 import 'package:petapp/View/Home/home_screen_provider.dart';
 import 'package:petapp/View/Utils/CustomContainerClipper.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
             (context, model, child) => Scaffold(
               body: Stack(
                 children: [
-                  Container(
+                  SizedBox(
                     height: double.infinity.h,
                     width: double.infinity.w,
                     child: Column(
@@ -80,14 +82,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text(
-                                'SeeAll',
-                                style: TextStyle(
-                                  color: Color(0xFFF3C266),
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Color(0xFFF3C266),
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.bold,
+                              InkWell(
+                                onTap: () => Get.toNamed(RoutesName.AllAnimal),
+                                child: Text(
+                                  'SeeAll',
+                                  style: TextStyle(
+                                    color: Color(0xFFF3C266),
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Color(0xFFF3C266),
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ],
