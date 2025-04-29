@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
-import 'package:petapp/Utils/Roures/routes.dart';
-import 'package:petapp/Utils/Roures/routes_name.dart';
+import 'package:petapp/Utils/Routes/routes.dart';
+import 'package:petapp/Utils/Routes/routes_name.dart';
 import 'package:petapp/View/Home/home_screen_provider.dart';
-import 'package:petapp/View/Utils/CustomContainerClipper.dart';
+import 'package:petapp/Utils/CustomContainerClipper.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -156,209 +156,130 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: ListView.builder(
                             itemCount: model.animal.length,
                             itemBuilder: (context, index) {
-                              return index.isEven
-                                  ? Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Stack(
-                                      clipBehavior: Clip.none,
-                                      children: [
-                                        ClipPath(
-                                          clipper: SpeechBubbleClipper(),
-                                          child: Container(
-                                            height: 200.h,
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFF3C266),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.only(
-                                                right: 100.w,
-                                              ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                          horizontal: 20.w,
-                                                          vertical: 10.h,
-                                                        ),
-                                                    child: Row(
-                                                      children: [
-                                                        Text(
-                                                          model.name[index],
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 30.sp,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                        SizedBox(width: 10.w),
-                                                        Text(
-                                                          'Age|1Y',
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 30.sp,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                          horizontal: 20.w,
-                                                        ),
-                                                    child: Text(
-                                                      'Pain itself,\nlet it be loved,\nis amet,consectetur',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 18.sp,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                          horizontal: 20.w,
-                                                        ),
-                                                    child: Text(
-                                                      'Price:${model.price[index]}',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 30.sp,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.toNamed(
+                                      RoutesName.ListViewData,
+                                      arguments: {
+                                        'name': model.animalData[index]['name'],
+                                        'image':
+                                            model.animalData[index]['image'],
 
-                                        Positioned(
-                                          left: 200.w,
-                                          top: -10.h,
-                                          child: Image.asset(
-                                            model.animal[index],
-                                            height: 200.h,
-                                            width: 200.w,
+                                        'title':
+                                            model.animalData[index]['title'],
+                                        'des': model.animalData[index]['des'],
+                                        'price':
+                                            model.animalData[index]['price'],
+                                      },
+                                    );
+                                  },
+                                  child: Stack(
+                                    clipBehavior: Clip.none,
+                                    children: [
+                                      ClipPath(
+                                        clipper: SpeechBubbleClipper(),
+                                        child: Container(
+                                          height: 200.h,
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color:
+                                                index.isEven
+                                                    ? Color(0xFFF3C266)
+                                                    : Colors.brown,
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                  : Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Stack(
-                                      clipBehavior: Clip.none,
-                                      children: [
-                                        ClipPath(
-                                          clipper: SpeechBubbleClipper(),
-                                          child: Container(
-                                            height: 200.h,
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color: Colors.brown,
+                                          child: Padding(
+                                            padding: EdgeInsets.only(
+                                              right: 100.w,
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsets.only(
-                                                right: 100.w,
-                                              ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                          horizontal: 20.w,
-                                                          vertical: 10.h,
-                                                        ),
-                                                    child: Row(
-                                                      children: [
-                                                        Text(
-                                                          model.name[index],
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 30.sp,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                        SizedBox(width: 10.w),
-                                                        Text(
-                                                          'Age|1Y',
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 30.sp,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                    horizontal: 20.w,
+                                                    vertical: 10.h,
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                          horizontal: 20.w,
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        model
+                                                            .animalData[index]['name'],
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 25.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
                                                         ),
-                                                    child: Text(
-                                                      'Pain itself,\nlet it be loved,\nis amet,consectetur',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 18.sp,
-                                                        fontWeight:
-                                                            FontWeight.w400,
                                                       ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                          horizontal: 20.w,
+                                                      SizedBox(width: 5.w),
+                                                      Text(
+                                                        model
+                                                            .animalData[index]['title'],
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 25.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
                                                         ),
-                                                    child: Text(
-                                                      'Price:${model.price[index]}',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 30.sp,
-                                                        fontWeight:
-                                                            FontWeight.bold,
                                                       ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                    horizontal: 20.w,
+                                                  ),
+                                                  child: Text(
+                                                    model
+                                                        .animalData[index]['des'],
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 18.sp,
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                    horizontal: 20.w,
+                                                    vertical: 15.h,
+                                                  ),
+                                                  child: Text(
+                                                    model
+                                                        .animalData[index]['price'],
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 25.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ),
+                                      ),
 
-                                        Positioned(
-                                          left: 200.w,
-                                          top: -10.h,
-                                          child: Image.asset(
-                                            model.animal[index],
-                                            height: 200.h,
-                                            width: 200.w,
-                                          ),
+                                      Positioned(
+                                        left: 200.w,
+                                        top: -10.h,
+                                        child: Image.asset(
+                                          model.animalData[index]['image'],
+                                          height: 200.h,
+                                          width: 200.w,
                                         ),
-                                      ],
-                                    ),
-                                  );
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
                             },
                           ),
                         ),

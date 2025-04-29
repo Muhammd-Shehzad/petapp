@@ -5,15 +5,12 @@ import 'package:get/instance_manager.dart';
 import 'package:petapp/View/AllAnimals/all_animal_provider.dart';
 import 'package:provider/provider.dart';
 
-class AllAnimal extends StatefulWidget {
+class AllAnimal extends StatelessWidget {
   final int index;
-  const AllAnimal({super.key, required this.index});
+  final image;
+  final text;
+  AllAnimal({super.key, required this.index, this.image, this.text});
 
-  @override
-  State<AllAnimal> createState() => _AllAnimalState();
-}
-
-class _AllAnimalState extends State<AllAnimal> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -100,7 +97,6 @@ class _AllAnimalState extends State<AllAnimal> {
     );
   }
 }
-
 
 // Expanded(
 //         child: GridView.builder(

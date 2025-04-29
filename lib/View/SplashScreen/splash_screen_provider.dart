@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:petapp/Utils/Roures/routes_name.dart';
+import 'package:petapp/Utils/Routes/routes_name.dart';
 
 class SplashScreenProvider extends ChangeNotifier {
   void goTo() {

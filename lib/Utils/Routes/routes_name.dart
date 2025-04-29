@@ -6,4 +6,7 @@ class RoutesName {
   static const String DogScreen = 'dog_screen';
   static const String FishScreen = 'fish_screen';
   static const String PigeonScreen = 'pigeon_screen';
+  static const String Cat = 'cat';
+  static const String ListViewData = 'list_view_data';
+  static const String Rabbit = 'rabbit';
 }
