@@ -9,8 +9,6 @@ class HomeScreenProvider extends ChangeNotifier {
     'assets/cat2.png',
     'assets/loop.png',
   ];
-  List name = ['Dog', 'Cat', 'Rabbit'];
-  List price = ['\$20', '\$30', '\$40'];
 
   List<Color> color = [Color(0xFFF3C266), Colors.brown];
 
