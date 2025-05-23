@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/instance_manager.dart';
-import 'package:petapp/View/AllAnimals/all_animal_provider.dart';
 import 'package:petapp/View/AnimalScreen/Pigeon/pigeon_screen_provider.dart';
 import 'package:provider/provider.dart';
 

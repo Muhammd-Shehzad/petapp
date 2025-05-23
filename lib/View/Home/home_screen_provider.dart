@@ -73,7 +73,7 @@ class HomeScreenProvider extends ChangeNotifier {
       default:
         Get.to(
           () => Scaffold(
-            body: Center(child: Text('No route defined for ${index}')),
+            body: Center(child: Text('No route defined for $index')),
           ),
         );
     }

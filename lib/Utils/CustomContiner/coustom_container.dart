@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomContainer extends StatelessWidget {
-  CustomContainer({
+  const CustomContainer({
     super.key,
     this.height,
     this.width,

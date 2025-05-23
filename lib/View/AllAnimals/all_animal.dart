@@ -9,7 +9,7 @@ class AllAnimal extends StatelessWidget {
   final int index;
   final image;
   final text;
-  AllAnimal({super.key, required this.index, this.image, this.text});
+  const AllAnimal({super.key, required this.index, this.image, this.text});
 
   @override
   Widget build(BuildContext context) {

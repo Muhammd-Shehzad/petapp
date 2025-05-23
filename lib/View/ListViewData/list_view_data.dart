@@ -7,7 +7,7 @@ import 'package:petapp/View/Home/home_screen_provider.dart';
 import 'package:provider/provider.dart';
 
 class ListViewData extends StatelessWidget {
-  ListViewData({super.key, required this.args});
+  const ListViewData({super.key, required this.args});
   final Map args;
 
   @override

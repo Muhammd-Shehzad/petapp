@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:petapp/Utils/Routes/routes_name.dart';
-import 'package:petapp/View/Home/home_screen.dart';
 import 'package:petapp/View/OnBoardingScreen/on_bording_screen_provider.dart';
 import 'package:provider/provider.dart';
 
